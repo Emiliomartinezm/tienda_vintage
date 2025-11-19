@@ -25,7 +25,7 @@
 
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link active" href="login.php">Iniciar sesión</a></li>
-        <li class="nav-item"><a class="btn btn-outline-light ms-2" href="carrito.php">🛒 Carrito</a></li>
+        <li class="nav-item"><a class="btn btn-outline-light ms-2" href="carrito.php">Carrito</a></li>
       </ul>
     </div>
   </div>
