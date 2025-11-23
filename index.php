@@ -1,3 +1,6 @@
+<?php
+session_start(); // IMPORTANTE: Esto debe ir en la primerísima línea
+?>
 <!doctype html>
 <html lang="es">
   <head>
@@ -22,14 +25,29 @@
             <li class="nav-item"><a class="nav-link" href="nosotros.php">Nosotros</a></li>
             <li class="nav-item"><a class="nav-link" href="contacto.php">Contacto</a></li>
           </ul>
+          
+          <!-- AQUÍ ESTÁ LA MAGIA: Menú dinámico según login -->
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="login.php">Iniciar sesión</a></li>
+            <?php if (isset($_SESSION['usuario_id'])): ?>
+                <!-- Caso: Usuario LOGUEADO -->
+                <li class="nav-item">
+                    <span class="nav-link text-warning">Hola, <?= htmlspecialchars($_SESSION['usuario_nombre']) ?></span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Cerrar sesión</a>
+                </li>
+            <?php else: ?>
+                <!-- Caso: Usuario NO logueado (Invitado) -->
+                <li class="nav-item"><a class="nav-link" href="login.php">Iniciar sesión</a></li>
+            <?php endif; ?>
+
             <li class="nav-item">
               <a class="btn btn-outline-light ms-2" href="carrito.php">
                 Carrito
               </a>
             </li>
           </ul>
+
         </div>
       </div>
     </nav>

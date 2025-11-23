@@ -1,0 +1,33 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    volumes:
+      # CAMBIO IMPORTANTE: Usamos '.' en lugar de './html' porque tus archivos
+      # parecen estar en la raíz del proyecto según tu captura.
+      - .:/var/www/html
+
+  db:
+    image: mysql:8.1.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: tienda_vintage
+      # CAMBIO IMPORTANTE: Agregamos esto para que exista el usuario que usas en db.php
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: somosleones1
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
