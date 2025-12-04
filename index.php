@@ -29,7 +29,14 @@ session_start(); // IMPORTANTE: Esto debe ir en la primerísima línea
           <!-- AQUÍ ESTÁ LA MAGIA: Menú dinámico según login -->
           <ul class="navbar-nav ms-auto">
             <?php if (isset($_SESSION['usuario_id'])): ?>
-                <!-- Caso: Usuario LOGUEADO -->
+                
+                <!-- VERIFICACIÓN DE ADMIN -->
+                <?php if (isset($_SESSION['usuario_rol']) && $_SESSION['usuario_rol'] === 'admin'): ?>
+                    <li class="nav-item">
+                        <a class="nav-link text-info fw-bold" href="admin.php">Panel Admin</a>
+                    </li>
+                <?php endif; ?>
+
                 <li class="nav-item">
                     <span class="nav-link text-warning">Hola, <?= htmlspecialchars($_SESSION['usuario_nombre']) ?></span>
                 </li>
