@@ -50,7 +50,7 @@ $resultado = mysqli_query($conn, $query);
 
   <?php if(isset($_GET['mensaje']) && $_GET['mensaje'] == 'compra_exitosa'): ?>
     <div class="alert alert-success text-center">
-        ¡Gracias por tu compra! Tu pedido ha sido procesado. 🎸
+        ¡Gracias por tu compra! Tu pedido ha sido procesado.
     </div>
   <?php endif; ?>
 

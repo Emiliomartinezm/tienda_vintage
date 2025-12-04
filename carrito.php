@@ -114,7 +114,7 @@ $total_general = 0;
 
   <?php else: ?>
       <div class="alert alert-info text-center py-5">
-          <h4>Tu carrito está vacío 😢</h4>
+          <h4>Tu carrito está vacío </h4>
           <p>Ve al catálogo y agrega algunos clásicos.</p>
           <a href="catalogo.php" class="btn btn-primary mt-3">Ir al Catálogo</a>
       </div>
