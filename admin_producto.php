@@ -118,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                        value="<?= htmlspecialchars(str_replace('assets/', '', $producto['imagen_url'])) ?>" 
                                        placeholder="ej: guitarra.jpg" required>
                             </div>
-                            <small class="text-muted">Asegúrate de haber guardado la foto en la carpeta <code>assets</code> primero.</small>
+                            
                         </div>
 
                         <div class="mb-4">
